@@ -1,0 +1,62 @@
+<html>
+<title>Test</title>
+
+<body onload="link()">
+
+    <p>Level
+        <input type="number" min="21" max="99" id="LVL" value="21" onchange="update()">
+    </p>
+
+    <p>Upgrade
+        <input type="number" min="0" max="5" id="UP" value="0" onchange="update()">
+    </p>
+
+    <p id="sortie">Nombre de Points total : 3 Nombre de Points a utiliser : 3</p>
+
+    <p>Attaque
+        <input type="number" min="0" max="100" id="AtN" value="0" oninput="number(id)">
+        <input type="range" id="At" min="0" max="100" value="0" oninput="number(id)">
+        + <input type="text" id="AtT" readonly value="0">
+    </p>
+
+    <p>Defense
+        <input type="number" min="0" max="100" id="DeN" value="0" oninput="number(id)">
+        <input type="range" id="De" min="0" max="100" value="0" oninput="number(id)">
+        + <input type="text" id="DeT" readonly value="0">
+    </p>
+
+    <p>Element
+        <input type="number" min="0" max="100" id="ElN" value="0" oninput="number(id)">
+        <input type="range" id="El" min="0" max="100" value="0" oninput="number(id)">
+        + <input type="text" id="ElT" readonly value="0">
+    </p>
+
+    <p>HP/MP
+        <input type="number" min="0" max="100" id="MaN" value="0" oninput="number(id)">
+        <input type="range" id="Ma" min="0" max="100" value="0" oninput="number(id)">
+        + <input type="text" id="MaT" readonly value="0"> %
+    </p>
+
+    <p id="bonusA">Bonus :</p>
+    <p id="bonusD"></p>
+    <p id="bonusE"></p>
+    <p id="bonusM"></p>
+
+    <p>
+        Attaque | Defense | Element | HP/MP | Global</br>
+        <input type="number" min="0" max="20" id="Atb" value="0" oninput="item(id)">
+        <input type="number" min="0" max="20" id="Deb" value="0" oninput="item(id)">
+        <input type="number" min="0" max="20" id="Elb" value="0" oninput="item(id)">
+        <input type="number" min="0" max="20" id="Mab" value="0" oninput="item(id)">
+        <input type="number" min="0" max="20" id="Glb" value="0" oninput="item(id)">
+    </p>
+
+    <p>
+        URL à partager :
+        <input type="text" id="Link" readonly value="NosWiki.fr/calculateur.html?21&0&0&0&0&0">
+    </p>
+
+    <script type="text/javascript" src="main.js"></script>
+</body>
+
+</html>
