@@ -1,2 +1,2 @@
 # NosWiki
-Codes for the french nostales wiki
+Codes for the nostales french wiki
