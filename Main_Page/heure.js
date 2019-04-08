@@ -25,9 +25,7 @@ function date_heure() {
 window.onload = function() {
     setInterval("date_heure()", 1e3)
 }, $(document).ready(function() {
-    $("tr:even").css("background-color", "#ededed"), $(".toggle").click(function() {
         $("#toggled").toggleClass("shown"), $(".toggle").is(function() {
             $(".toggle").text("moins"), $("#toggled").hasClass("shown") ? $(".toggle").text("moins") : $(".toggle").text("plus")
         })
-    })
 });
