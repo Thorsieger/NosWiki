@@ -32,14 +32,14 @@ function update() {
 
     document.getElementById("sortie").innerHTML = "Nombre de Points total : " + nombrePointMax + " Nombre de Points a utiliser : " + nombrePointUtiliser;
 
-    document.getElementById("Link").value = "NosWiki.fr/CalcuPoints.html?" + LVL + "&" + UP + "&" + document.getElementById("At").value + "&" + document.getElementById("De").value + "&" + document.getElementById("El").value + "&" + document.getElementById("Ma").value + "&" + document.getElementById("Atb").value + "&" + document.getElementById("Deb").value + "&" + document.getElementById("Elb").value + "&" + document.getElementById("Mab").value + "&" + document.getElementById("Glb").value;
+    //document.getElementById("Link").value = "NosWiki.fr/CalcuPoints.html?" + LVL + "&" + UP + "&" + document.getElementById("At").value + "&" + document.getElementById("De").value + "&" + document.getElementById("El").value + "&" + document.getElementById("Ma").value + "&" + document.getElementById("Atb").value + "&" + document.getElementById("Deb").value + "&" + document.getElementById("Elb").value + "&" + document.getElementById("Mab").value + "&" + document.getElementById("Glb").value;
     scookie();
 }
 
 function number(id) {
     maximum(id)
     calcul(id);
-    if(id.split('N')[1]==undefined)
+    /*if(id.split('N')[1]==undefined)
     {  
         document.getElementById("AtN").value = document.getElementById("At").value;
         document.getElementById("DeN").value = document.getElementById("De").value;
@@ -52,8 +52,8 @@ function number(id) {
         document.getElementById("De").value = document.getElementById("DeN").value;
         document.getElementById("El").value = document.getElementById("ElN").value;
         document.getElementById("Ma").value = document.getElementById("MaN").value;
-    }
-    document.getElementById("Link").value = "NosWiki.fr/CalcuPoints.html?" + LVL + "&" + UP + "&" + document.getElementById("At").value + "&" + document.getElementById("De").value + "&" + document.getElementById("El").value + "&" + document.getElementById("Ma").value + "&" + document.getElementById("Atb").value + "&" + document.getElementById("Deb").value + "&" + document.getElementById("Elb").value + "&" + document.getElementById("Mab").value + "&" + document.getElementById("Glb").value;
+    }*/
+    //document.getElementById("Link").value = "NosWiki.fr/CalcuPoints.html?" + LVL + "&" + UP + "&" + document.getElementById("At").value + "&" + document.getElementById("De").value + "&" + document.getElementById("El").value + "&" + document.getElementById("Ma").value + "&" + document.getElementById("Atb").value + "&" + document.getElementById("Deb").value + "&" + document.getElementById("Elb").value + "&" + document.getElementById("Mab").value + "&" + document.getElementById("Glb").value;
     afficheBonus();
     scookie();
 }
@@ -62,10 +62,10 @@ function calcul(id) {
     var max = parseInt(document.getElementById(id).value);
 
     var stat;
-    if(id.split("N")[0]=="At")stat=0;
-    else if(id.split("N")[0]=="De")stat=1;
-    else if(id.split("N")[0]=="El")stat=2;
-    else if(id.split("N")[0]=="Ma")stat=3;
+    if(id=="AtN")stat=0;
+    else if(id=="DeN")stat=1;
+    else if(id=="ElN")stat=2;
+    else if(id=="MaN")stat=3;
 
     var cout = [
         {1:1, 11:2, 20:3, 40:4, 60:5, 80:6, 91:7, 98:8, 99:9, 100:10},
@@ -120,12 +120,12 @@ function item(id) {
     }
     else {
         document.getElementById(id.split('b')[0] + 'N').max = 100 - parseInt(document.getElementById(id).value) - parseInt(document.getElementById("Glb").value);
-        document.getElementById(id.split('b')[0]).max = 100 - parseInt(document.getElementById(id).value) - parseInt(document.getElementById("Glb").value);
+        //document.getElementById(id.split('b')[0]).max = 100 - parseInt(document.getElementById(id).value) - parseInt(document.getElementById("Glb").value);
         if (parseInt(document.getElementById(id.split('b')[0] + 'N').max) < parseInt(document.getElementById(id.split('b')[0] + 'N').value)) {
             document.getElementById(id.split('b')[0] + 'N').value = document.getElementById(id.split('b')[0] + 'N').max;
-            document.getElementById(id.split('b')[0]).value = document.getElementById(id.split('b')[0]).max;
+            //document.getElementById(id.split('b')[0]).value = document.getElementById(id.split('b')[0]).max;
         }
-        calcul(id.split('b')[0]);
+        calcul(id.split('b')[0] + "N");
         scookie();
     }
 }
@@ -152,10 +152,10 @@ function afficheBonus() {
     var BonusElement = 0;
     var BonusDommageDefense = 0;
 
-    var _Attaque = document.getElementById("At").value;
-    var _Defense = document.getElementById("De").value;
-    var _element = document.getElementById("El").value;
-    var _Mana = document.getElementById("Ma").value;
+    var _Attaque = document.getElementById("AtN").value;
+    var _Defense = document.getElementById("DeN").value;
+    var _element = document.getElementById("ElN").value;
+    var _Mana = document.getElementById("MaN").value;
 
     if (_Attaque == 0);
     else if (_Attaque < 10) { BonusAttaque += 5; }
@@ -237,7 +237,7 @@ function afficheBonus() {
 
 //création du cookie
 function scookie() {
-    var value = LVL + "&" + UP + "&" + document.getElementById("At").value + "&" + document.getElementById("De").value + "&" + document.getElementById("El").value + "&" + document.getElementById("Ma").value + "&" + document.getElementById("Atb").value + "&" + document.getElementById("Deb").value + "&" + document.getElementById("Elb").value + "&" + document.getElementById("Mab").value + "&" + document.getElementById("Glb").value
+    var value = LVL + "/" + UP + "/" + document.getElementById("AtN").value + "/" + document.getElementById("DeN").value + "/" + document.getElementById("ElN").value + "/" + document.getElementById("MaN").value + "/" + document.getElementById("Atb").value + "/" + document.getElementById("Deb").value + "/" + document.getElementById("Elb").value + "/" + document.getElementById("Mab").value + "/" + document.getElementById("Glb").value
     var expire = new Date();
     expire.setDate(expire.getDate() + 15);
     document.cookie = value + ';expires=' + expire.toGMTString();
@@ -257,10 +257,15 @@ function link() {
 
 function init(val)
 {
-    val = val.split('&');
+    val = val.split('/');
         document.getElementById("LVL").value = val[0];
         document.getElementById("UP").value = val[1];
         update();
+
+        maz("AtN", val[2]);
+        maz("DeN", val[3]);
+        maz("ElN", val[4]);
+        maz("MaN", val[5]);
 
         document.getElementById("Atb").value = val[6];
         document.getElementById("Deb").value = val[7];
@@ -268,14 +273,19 @@ function init(val)
         document.getElementById("Mab").value = val[9];
         document.getElementById("Glb").value = val[10];
         item("Glb");
-
-        maz("At", val[2]);
-        maz("De", val[3]);
-        maz("El", val[4]);
-        maz("Ma", val[5]);
 }
 
 function maz(id, val) {
-    document.getElementById(id).value = val;
+    document.getElementById(id).value = parseInt(val);
     number(id);
+}
+
+function createLink(){
+    var lien = "noswiki.fr/nombrePointUtiliser.html" ;
+    lien +="?"+  LVL + "/" + UP + "/" + document.getElementById("AtN").value + "/" + document.getElementById("DeN").value + "/" + document.getElementById("ElN").value + "/" + document.getElementById("MaN").value + "/" + document.getElementById("Atb").value + "/" + document.getElementById("Deb").value + "/" + document.getElementById("Elb").value + "/" + document.getElementById("Mab").value + "/" + document.getElementById("Glb").value;
+    
+    document.getElementById("link").value = lien;
+    var copyText = document.querySelector("textarea");
+    copyText.select();
+    document.execCommand('copy');
 }
