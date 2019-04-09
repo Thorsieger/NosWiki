@@ -32,28 +32,12 @@ function update() {
 
     document.getElementById("sortie").innerHTML = "Nombre de Points total : " + nombrePointMax + " Nombre de Points a utiliser : " + nombrePointUtiliser;
 
-    //document.getElementById("Link").value = "NosWiki.fr/CalcuPoints.html?" + LVL + "&" + UP + "&" + document.getElementById("At").value + "&" + document.getElementById("De").value + "&" + document.getElementById("El").value + "&" + document.getElementById("Ma").value + "&" + document.getElementById("Atb").value + "&" + document.getElementById("Deb").value + "&" + document.getElementById("Elb").value + "&" + document.getElementById("Mab").value + "&" + document.getElementById("Glb").value;
     scookie();
 }
 
 function number(id) {
     maximum(id)
     calcul(id);
-    /*if(id.split('N')[1]==undefined)
-    {  
-        document.getElementById("AtN").value = document.getElementById("At").value;
-        document.getElementById("DeN").value = document.getElementById("De").value;
-        document.getElementById("ElN").value = document.getElementById("El").value;
-        document.getElementById("MaN").value = document.getElementById("Ma").value;
-    }
-    else
-    {
-        document.getElementById("At").value = document.getElementById("AtN").value;
-        document.getElementById("De").value = document.getElementById("DeN").value;
-        document.getElementById("El").value = document.getElementById("ElN").value;
-        document.getElementById("Ma").value = document.getElementById("MaN").value;
-    }*/
-    //document.getElementById("Link").value = "NosWiki.fr/CalcuPoints.html?" + LVL + "&" + UP + "&" + document.getElementById("At").value + "&" + document.getElementById("De").value + "&" + document.getElementById("El").value + "&" + document.getElementById("Ma").value + "&" + document.getElementById("Atb").value + "&" + document.getElementById("Deb").value + "&" + document.getElementById("Elb").value + "&" + document.getElementById("Mab").value + "&" + document.getElementById("Glb").value;
     afficheBonus();
     scookie();
 }
@@ -120,11 +104,9 @@ function item(id) {
     }
     else {
         document.getElementById(id.split('b')[0] + 'N').max = 100 - parseInt(document.getElementById(id).value) - parseInt(document.getElementById("Glb").value);
-        //document.getElementById(id.split('b')[0]).max = 100 - parseInt(document.getElementById(id).value) - parseInt(document.getElementById("Glb").value);
         if (parseInt(document.getElementById(id.split('b')[0] + 'N').max) < parseInt(document.getElementById(id.split('b')[0] + 'N').value)) {
             document.getElementById(id.split('b')[0] + 'N').value = document.getElementById(id.split('b')[0] + 'N').max;
-            //document.getElementById(id.split('b')[0]).value = document.getElementById(id.split('b')[0]).max;
-        }
+           }
         calcul(id.split('b')[0] + "N");
         scookie();
     }
@@ -284,8 +266,10 @@ function createLink(){
     var lien = "noswiki.fr/nombrePointUtiliser.html" ;
     lien +="?"+  LVL + "/" + UP + "/" + document.getElementById("AtN").value + "/" + document.getElementById("DeN").value + "/" + document.getElementById("ElN").value + "/" + document.getElementById("MaN").value + "/" + document.getElementById("Atb").value + "/" + document.getElementById("Deb").value + "/" + document.getElementById("Elb").value + "/" + document.getElementById("Mab").value + "/" + document.getElementById("Glb").value;
     
+    document.getElementById("link").hidden = false;
     document.getElementById("link").value = lien;
     var copyText = document.querySelector("textarea");
     copyText.select();
     document.execCommand('copy');
+    document.getElementById("link").hidden = true;
 }
