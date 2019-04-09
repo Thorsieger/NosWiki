@@ -17,7 +17,7 @@ function date_heure() {
     document.getElementById("heure_message_canal").innerHTML = "Canal LOD : " + textaAfficher[1][heures];
     document.getElementById("heure_message_lod").innerHTML = "Prochain LOD a " + textaAfficher[2][heures] + ":30";
 
-    if((heures%2 == 0)&&(minutes<=15))document.getElementById("heure_message_ci").innerHTML = "CI en cours";
+    if((heures%2 == 0)&&(minutes>=15))document.getElementById("heure_message_ci").innerHTML = '<img src="img/CI.png"/>' +"CI en cours";
     else document.getElementById("heure_message_ci").innerHTML = "";
 }
 
@@ -25,7 +25,9 @@ function date_heure() {
 window.onload = function() {
     setInterval("date_heure()", 1e3)
 }, $(document).ready(function() {
+    $(".toggle").click(function() {
         $("#toggled").toggleClass("shown"), $(".toggle").is(function() {
             $(".toggle").text("moins"), $("#toggled").hasClass("shown") ? $(".toggle").text("moins") : $(".toggle").text("plus")
         })
+    })
 });
