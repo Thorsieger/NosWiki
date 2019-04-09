@@ -15,7 +15,7 @@ function calculParfume()
         [20,40,80,120,160,200,300]
     ];
 
-    var coutParfume = tabParfume[parseInt((itemLVL)/10)-1][rareLVL-1];
+    var coutParfume = tabParfume[itemLVL][rareLVL];
     document.getElementById("nbrParfume").value = coutParfume;
 
 }

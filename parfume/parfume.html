@@ -4,8 +4,26 @@
 <body>
 
     <p>
-        Level de l'item <input type="number" id="itemLVL" min="1" max="99" value="1" onchange="calculParfume()">
-        Niveau de rareté <input type="number" id="rareLVL" min="1" max="7" value="1" onchange="calculParfume()">
+       Level de l'item <select id="itemLVL" onchange="calculParfume()">
+            <option value="0">1~10</option>
+            <option value="1">11~20</option>
+            <option value="2">21~39</option>
+            <option value="3">40~49</option>
+            <option value="4">50~59</option>
+            <option value="5">60~69</option>
+            <option value="6">70~79</option>
+            <option value="7">80~89</option>
+            <option value="8">90~99</option>
+          </select> 
+        Niveau de rareté <select id="rareLVL" onchange="calculParfume()">
+            <option value="0">1</option>
+            <option value="1">2</option>
+            <option value="2">3</option>
+            <option value="3">4</option>
+            <option value="4">5</option>
+            <option value="5">6</option>
+            <option value="6">7</option>
+          </select> 
     </p>
     <p>
         Parfume à utiliser:
