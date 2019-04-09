@@ -4,7 +4,7 @@
 <body>
 
     <p>
-       Level de l'item <select id="itemLVL" onchange="calculParfume()">
+       Level de l'item <select id="itemLVL" oninput="calculParfume()" >
             <option value="0">25~39</option>
             <option value="1">40~49</option>
             <option value="2">50~59</option>
@@ -14,13 +14,13 @@
             <option value="6">90~99</option>
             <option value="7">Heroique</option>
           </select> 
-          <select hidden id="HeroiqueLVL" onchange="calculParfume()">
+          <select hidden id="HeroiqueLVL" oninput="calculParfume()">
             <option value="0">25</option>
             <option value="3">28</option>
             <option value="20">45</option>
             <option value="23">48</option>
           </select> 
-        Niveau de rareté <select id="rareLVL" onchange="calculParfume()">
+        Niveau de rareté <select id="rareLVL" oninput="calculParfume()">
             <option value="0">1</option>
             <option value="1">2</option>
             <option value="2">3</option>
@@ -39,7 +39,7 @@
     </p>
     <p>
       Prix d'un parfum
-      <input type="number" id="prixParfum" value="0" onchange="calculParfume()" >
+      <input type="number" id="prixParfum" value="0" oninput="calculParfume()" >
     </p>
     <p>
       <input type="number" id="prixTotal" value="0" readonly>
