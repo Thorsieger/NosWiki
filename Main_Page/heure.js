@@ -17,8 +17,10 @@ function date_heure() {
     document.getElementById("heure_message_canal").innerHTML = "Canal LOD : " + textaAfficher[1][heures];
     document.getElementById("heure_message_lod").innerHTML = "Prochain LOD a " + textaAfficher[2][heures] + ":30";
 
-    if((heures%2 == 0)&&(minutes<=15))document.getElementById("heure_message_ci").innerHTML = '<img src="img/CI.png"/>' +"CI en cours";
-    else document.getElementById("heure_message_ci").innerHTML = "";
+    
+
+    if((heures%2 == 0)&&(minutes<=15)){document.getElementsByClassName("stats")[0].style.padding = "0";document.getElementById("heure_message_ci").innerHTML = '<img src="img/CI.png"/>' +"CI en cours";}
+    else {document.getElementsByClassName("stats")[0].style.padding = "0";document.getElementById("heure_message_ci").innerHTML = "" ;}
 }
 
 
