@@ -19,7 +19,7 @@ function date_heure() {
 
     
 
-    if((heures%2 == 0)&&(minutes<=15)){document.getElementsByClassName("stats")[0].style.padding = "0";document.getElementById("heure_message_ci").innerHTML = '<img src="img/CI.png"/>' +"CI en cours";}
+    if((heures%2 == 0)&&(minutes<=15)){document.getElementsByClassName("stats")[0].style.padding = "10px 0";document.getElementById("heure_message_ci").innerHTML = '<img src="img/CI.png"/>' +"CI en cours";}
     else {document.getElementsByClassName("stats")[0].style.padding = "0";document.getElementById("heure_message_ci").innerHTML = "" ;}
 }
 
