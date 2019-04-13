@@ -1,50 +1,49 @@
 <html>
 <title>Parfume</title>
 <meta charset="UTF-8">
+
 <body>
 
-    <p>
-       Level de l'item <select id="itemLVL" oninput="calculParfume()" >
-            <option value="0">25~39</option>
-            <option value="1">40~49</option>
-            <option value="2">50~59</option>
-            <option value="3">60~69</option>
-            <option value="4">70~79</option>
-            <option value="5">80~89</option>
-            <option value="6">90~99</option>
-            <option value="7">Heroique</option>
-          </select> 
-          <select hidden id="HeroiqueLVL" oninput="calculParfume()">
-            <option value="0">25</option>
-            <option value="3">28</option>
-            <option value="20">45</option>
-            <option value="23">48</option>
-          </select> 
-        Niveau de rareté <select id="rareLVL" oninput="calculParfume()">
-            <option value="0">1</option>
-            <option value="1">2</option>
-            <option value="2">3</option>
-            <option value="3">4</option>
-            <option value="4">5</option>
-            <option value="5">6</option>
-            <option value="6">7</option>
-            <option disabled id="legendaire" value="7">Legendaire</option>
-          </select>
-    </p>
-    <p>
-        Parfums à utiliser:
-        <input type="number" id="nbrParfume" value="0" readonly>
-        Or à utiliser:
-        <input type="number" id="nbrOr" value="0" readonly>
-    </p>
-    <p>
-      Prix d'un parfum
-      <input type="number" id="prixParfum" value="0" oninput="calculParfume()" >
-    </p>
-    <p>
-      <input type="number" id="prixTotal" value="0" readonly>
-    </p>
-    <script type="text/javascript" src="parfume.js"></script>
+  <label for="level">Level de l'item</label>
+  <select id="itemLVL" oninput="calculParfume()">
+    <option value="0">25~39</option>
+    <option value="1">40~49</option>
+    <option value="2">50~59</option>
+    <option value="3">60~69</option>
+    <option value="4">70~79</option>
+    <option value="5">80~89</option>
+    <option value="6">90~99</option>
+    <option value="7">Heroique</option>
+  </select>
+  <select hidden id="HeroiqueLVL" oninput="calculParfume()">
+    <option value="0">25</option>
+    <option value="3">28</option>
+    <option value="20">45</option>
+    <option value="23">48</option>
+  </select>
+  <label for="rare">Niveau de rareté</label> <select id="rareLVL" oninput="calculParfume()">
+    <option value="0">1</option>
+    <option value="1">2</option>
+    <option value="2">3</option>
+    <option value="3">4</option>
+    <option value="4">5</option>
+    <option value="5">6</option>
+    <option value="6">7</option>
+    <option disabled id="legendaire" value="7">Legendaire</option>
+  </select>
+    <label for="nbrParfume">Parfums à utiliser:</label>
+    <input type="number" id="nbrParfume" value="0" readonly>
+    <label for="nbrOr">Or à utiliser:</label>
+    <input type="number" id="nbrOr" value="0" readonly>
+  </p>
+  <p>
+    Prix d'un parfum
+    <input type="number" id="prixParfum" value="0" oninput="calculParfume()">
+  </p>
+  <p>
+    <input type="number" id="prixTotal" value="0" readonly>
+  </p>
+  <script type="text/javascript" src="parfume.js"></script>
 </body>
 
 </html>
