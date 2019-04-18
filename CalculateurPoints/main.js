@@ -281,7 +281,7 @@ function maz(id, val) {
 }
 
 function createLink(){
-    var lien = "noswiki.fr/nombrePointUtiliser.html" ;
+    var lien = "http://noswiki.fr/points.html" ;
     lien +="?"+  LVL + "/" + UP + "/" + document.getElementById("AtN").value + "/" + document.getElementById("DeN").value + "/" + document.getElementById("ElN").value + "/" + document.getElementById("MaN").value + "/" + document.getElementById("Atb").value + "/" + document.getElementById("Deb").value + "/" + document.getElementById("Elb").value + "/" + document.getElementById("Mab").value + "/" + document.getElementById("Glb").value;
     
     document.getElementById("link").hidden = false;
