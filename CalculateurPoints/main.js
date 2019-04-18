@@ -21,9 +21,26 @@ function update() {
     LVL = document.getElementById("LVL").value;
     UP = document.getElementById("UP").value;
 
-    LVL <= 40 && (document.getElementById("UP").max = 5) && (UP > 5) && (document.getElementById("UP").value = 5);
-    LVL > 40 && LVL <= 50 && (document.getElementById("UP").max = 10) && (UP > 10) && (document.getElementById("UP").value = 10);
+    if (LVL<21) {
+        LVL = 21;
+        document.getElementById("LVL").value = LVL;
+    }
+    else if (LVL>99) {
+        LVL = 99;
+        document.getElementById("LVL").value = LVL;
+    } 
+
+    LVL <= 40 && (document.getElementById("UP").max = 5)
+    LVL > 40 && LVL <= 50 && (document.getElementById("UP").max = 10)
     LVL > 50 && (document.getElementById("UP").max = 15);
+
+    if (UP<0) {
+        UP = 0;
+        document.getElementById("UP").value = UP;
+    }else if (UP>document.getElementById("UP").max){
+        UP = document.getElementById("UP").max;
+        document.getElementById("UP").value = UP;
+    }     
 
     var UPtab = [0, 5, 10, 15, 20, 28, 36, 46, 56, 68, 80, 95, 110, 128, 148, 173];
 
@@ -189,7 +206,7 @@ function afficheBonus() {
     else if (_Mana < 70) { BonusAttaque += 90; BonusDommageDefense += 10; BonusBaisseExplosion += 25; BonusResistanceTout += 2 }
     else if (_Mana < 75) { BonusAttaque += 100; BonusDommageDefense += 45; BonusBaisseExplosion += 25; BonusResistanceTout += 2 }
     else if (_Mana < 80) { BonusAttaque += 115; BonusDommageDefense += 45; BonusBaisseExplosion += 25; BonusResistanceTout += 2 }
-    else { BonusAttaque + 130; BonusDommageDefense += 45; BonusBaisseExplosion += 25; BonusResistanceTout += 2 }
+    else { BonusAttaque += 130; BonusDommageDefense += 45; BonusBaisseExplosion += 25; BonusResistanceTout += 2 }
 
     var texte = "Bonus :</br>";
     if (BonusAttaque != 0) texte += "Pouvoir d'attaque +" + BonusAttaque + "</br>";
@@ -255,6 +272,7 @@ function init(val)
         document.getElementById("Mab").value = val[9];
         document.getElementById("Glb").value = val[10];
         item("Glb");
+        afficheBonus();
 }
 
 function maz(id, val) {
@@ -263,7 +281,7 @@ function maz(id, val) {
 }
 
 function createLink(){
-    var lien = "noswiki.fr/nombrePointUtiliser.html" ;
+    var lien = "http://noswiki.fr/points.html" ;
     lien +="?"+  LVL + "/" + UP + "/" + document.getElementById("AtN").value + "/" + document.getElementById("DeN").value + "/" + document.getElementById("ElN").value + "/" + document.getElementById("MaN").value + "/" + document.getElementById("Atb").value + "/" + document.getElementById("Deb").value + "/" + document.getElementById("Elb").value + "/" + document.getElementById("Mab").value + "/" + document.getElementById("Glb").value;
     
     document.getElementById("link").hidden = false;
@@ -272,4 +290,19 @@ function createLink(){
     copyText.select();
     document.execCommand('copy');
     document.getElementById("link").hidden = true;
+}
+
+function reset() {
+    maz("AtN", 0);
+    maz("DeN", 0);
+    maz("ElN", 0);
+    maz("MaN", 0);
+
+    document.getElementById("Atb").value = 0;
+    document.getElementById("Deb").value = 0;
+    document.getElementById("Elb").value = 0;
+    document.getElementById("Mab").value = 0;
+    document.getElementById("Glb").value = 0;
+    item("Glb");
+    afficheBonus();
 }
