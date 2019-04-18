@@ -206,7 +206,7 @@ function afficheBonus() {
     else if (_Mana < 70) { BonusAttaque += 90; BonusDommageDefense += 10; BonusBaisseExplosion += 25; BonusResistanceTout += 2 }
     else if (_Mana < 75) { BonusAttaque += 100; BonusDommageDefense += 45; BonusBaisseExplosion += 25; BonusResistanceTout += 2 }
     else if (_Mana < 80) { BonusAttaque += 115; BonusDommageDefense += 45; BonusBaisseExplosion += 25; BonusResistanceTout += 2 }
-    else { BonusAttaque + 130; BonusDommageDefense += 45; BonusBaisseExplosion += 25; BonusResistanceTout += 2 }
+    else { BonusAttaque += 130; BonusDommageDefense += 45; BonusBaisseExplosion += 25; BonusResistanceTout += 2 }
 
     var texte = "Bonus :</br>";
     if (BonusAttaque != 0) texte += "Pouvoir d'attaque +" + BonusAttaque + "</br>";
