@@ -8,15 +8,21 @@ function date_heure() {
     var minutes = e.getMinutes();
     document.getElementById("date_heure").innerHTML = compZero(heures) + " : " + compZero(minutes);
 
-    var textaAfficher = [
+    /*var textaAfficher = [
         ["02", "04", "06", "08", "10", "12", "14", "16", "18", "20", "22", "00"],
         ["1", "1", "1", "1", "1", "1", "1", "1", "1", "2", "2", "2", "2", "2", "3", "4", "5", "2", "2", "3", "4", "5", "1", "1"],
         ["02", "02", "02", "08", "08", "08", "08", "08", "08", "13", "13", "13", "13", "13", "14", "15", "16", "18", "18", "19", "20", "21", "02", "02"]
+    ];*/
+
+        var textaAfficher = [
+        ["02", "04", "06", "08", "10", "12", "14", "16", "18", "20", "22", "00"],
+        ["2 + 3", "2 + 3", "2 + 3", "2 + 3", "2 + 3", "2 + 3", "2 + 3", "2 + 3", "2 + 3", "2 + 3", "2 + 3", "2 + 3", "4 + 5", "6 + 7", "8 + 9", "2 + 3", "4 + 5", "6 + 7", "8 + 9", "2 + 3", "2 + 3", "2 + 3", "2 + 3", "2 + 3"],
+        ["13", "13", "13", "13", "13", "13", "13", "13", "13", "13", "13", "13", "13", "14", "15", "16", "17", "18", "19", "20", "13", "13", "13", "13"]
     ];
 
     document.getElementById("heure_message_next_ci").innerHTML = "Prochain CI : " + textaAfficher[0][parseInt(heures / 2)] + ":00";
     document.getElementById("heure_message_canal").innerHTML = "Canal LOD : " + textaAfficher[1][heures];
-    document.getElementById("heure_message_lod").innerHTML = "Prochain LOD a " + textaAfficher[2][heures] + ":30";
+    document.getElementById("heure_message_lod").innerHTML = "Prochain LOD a " + textaAfficher[2][heures] +":00";//+ ":30";
 
     if ((heures % 2 == 0) && (minutes <= 15)) {
         document.getElementsByClassName("stats")[0].style.padding = "10px 0";
